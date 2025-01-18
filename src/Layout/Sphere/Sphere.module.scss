@@ -1,0 +1,135 @@
+@use "sass:math";
+@use "@scss/styles" as *;
+
+$radius: 300px;
+$dotSize: 6px;
+$spokesNum: 36;
+$planesNum: 12;
+
+// Общий стиль контейнера
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+}
+
+// Сфера
+.sphere-wrapper {
+  transform-style: preserve-3d;
+  width: $radius;
+  height: $radius;
+  position: relative;
+  animation: rotate3d 10s linear infinite;
+
+  @media (min-width: $md) {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+// Плоскости
+.plane {
+  position: absolute;
+  transform-style: preserve-3d;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+}
+
+// Спицы
+.spoke {
+  transform-origin: 0 0;
+  transform-style: preserve-3d;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: math.div($radius, 2);
+  width: 0;
+  background: transparent;
+
+  @media (min-width: $md) {
+    height: math.div(350px, 2);
+  }
+
+  @media (min-width: $xlg) {
+    height: math.div(500px, 2);
+  }
+
+  .dot {
+    position: absolute;
+    width: $dotSize;
+    height: $dotSize;
+    border-radius: 50%;
+    background: #000;
+    left: math.div($dotSize, 2);
+    top: 100%;
+    transform: rotateX(90deg);
+  }
+}
+
+// Анимация вращения
+@keyframes rotate3d {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+// Анимация пульсации
+@keyframes pulsate {
+  0% {
+    transform: rotateX(90deg) scale(0.3) translateZ(20px);
+  }
+  50% {
+    transform: rotateX(90deg) scale(0.6) translateZ(10px);
+  }
+  100% {
+    transform: rotateX(90deg) scale(1) translateZ(0px);
+  }
+}
+
+// Миксин для спиц
+@mixin place-spokes($spokes: $spokesNum) {
+  @for $i from 1 through $spokes {
+    $currDeg: math.div(360deg, $spokes) * $i;
+    .spoke-#{$i} {
+      transform: rotateZ($currDeg);
+    }
+  }
+}
+
+// Миксин для плоскостей
+@mixin place-planes($planes: $planesNum) {
+  @for $i from 1 through $planes {
+    $currDeg: math.div(180deg, $planes) * $i;
+    .plane-#{$i} {
+      transform: rotateY($currDeg);
+    }
+  }
+}
+
+// Миксин для анимации точек
+@mixin animate-dots($spokes: math.div($spokesNum, 2)) {
+  @for $i from 0 through $spokes {
+    $delay: math.div($i, $spokes) * 1s;
+    $j: $spokesNum - $i;
+
+    .spoke-#{$i} .dot,
+    .spoke-#{$j} .dot {
+      animation: pulsate 0.5s infinite $delay alternate both;
+      background-color: #000;
+    }
+  }
+}
+
+// Включаем миксины
+@include place-spokes();
+@include place-planes();
+@include animate-dots();

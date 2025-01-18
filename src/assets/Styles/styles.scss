@@ -1,0 +1,45 @@
+/* Главные цвета */
+$primary: #F20004;
+
+/* Размеры для адаптива */
+$sm: 320px;
+$md: 768px;
+$lg: 1024px;
+$xlg: 1440px;
+
+/* Миксины для шрифтов */
+@mixin font-title {
+  font-size: 30px;
+}
+
+@mixin font-extra-large {
+  font-size: 22px;
+}
+
+@mixin font-large {
+  font-size: 20px;
+}
+
+@mixin font-big {
+  font-size: 18px;
+}
+
+@mixin font-default {
+  font-size: 16px;
+}
+
+@mixin font-small {
+  font-size: 14px;
+}
+
+@mixin font-xsmall {
+  font-size: 12px;
+}
+
+@mixin font-large {
+  font-size: 18px;
+}
+
+@mixin font-xlarge {
+  font-size: 22px;
+}

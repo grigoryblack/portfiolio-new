@@ -1,0 +1,167 @@
+@use "@scss/styles" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 32px;
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.header__scrolled {
+    box-shadow: 0 8px 24px 0 rgba(129, 135, 189, 0.15);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+    .logo {
+      color: black;
+    }
+
+    .burger span {
+      background-color: black;
+    }
+  }
+
+  .logo {
+    @include font-extra-large();
+    font-weight: 300;
+    cursor: default;
+
+    &:hover {
+      cursor: pointer;
+      font-weight: 400;
+      color: $primary;
+    }
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    align-items: center;
+    top: 99%;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+    transition: 0.3s all;
+
+    &.nav__open {
+      display: flex;
+    }
+
+    .menu {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      @include font-big();
+
+      li {
+        list-style: none;
+        text-align: center;
+        margin: 8px 0;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          font-weight: 200;
+          position: relative;
+          transition: color 0.3s;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: $primary;
+            transition: transform 0.3s ease;
+            transform: scaleX(0);
+            transform-origin: left;
+          }
+
+          &:hover {
+            color: $primary;
+
+            &::after {
+              transform: scaleX(1);
+            }
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+  .burger {
+    display: flex;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 0.4rem;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      transition: transform 0.3s, background-color 0.3s, opacity 0.3s;
+    }
+
+    &.burger__open{
+      span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        transform: translateX(-20px);
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    .burger {
+      display: none;
+    }
+
+    .logo {
+      @include font-large()
+    }
+
+    .nav {
+      display: flex;
+      position: relative;
+      align-items: flex-end;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .menu {
+        flex-direction: row;
+        gap: 32px;
+        @include font-default();
+
+        li {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
