@@ -5,12 +5,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0;
   background-color: black;
   position: relative;
 
   &::after {
-    content: ''; /* Обязательно для отображения псевдоэлемента */
+    content: ""; /* Обязательно для отображения псевдоэлемента */
     position: absolute;
     top: -49px; /* Размещаем вверху блока */
     left: 50%; /* Центруем треугольник относительно ширины блока */
@@ -21,7 +20,7 @@
   }
 
   &::before {
-    content: ''; /* Обязательно для отображения псевдоэлемента */
+    content: ""; /* Обязательно для отображения псевдоэлемента */
     position: absolute;
     bottom: -49px; /* Размещаем вверху блока */
     left: 50%; /* Центруем треугольник относительно ширины блока */
@@ -37,6 +36,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin: 50px 0;
 
     h2 {
       @include font-title;
@@ -57,8 +57,113 @@
 
     .container__inner {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       gap: 16px;
+      margin: 32px 0;
+
+      .card {
+        padding: 16px;
+        border-radius: 5px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include font-large;
+        cursor: pointer;
+
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #f5f5f5;
+          color: $primary;
+        }
+
+        .card__icon {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+          color: $primary;
+
+          h3 {
+            @include font-extra-large;
+            color: black;
+          }
+
+          .folderIcon {
+            font-size: 60px;
+            transition: opacity 0.3s ease;
+            opacity: 1;
+          }
+
+          .folderOpenIcon {
+            font-size: 60px;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0; /* По умолчанию скрытая */
+          }
+        }
+
+        /* Ховер на карточке - смена иконки */
+        &:hover .card__icon .folderIcon {
+          opacity: 0; /* Скрыть закрытую папку */
+        }
+
+        &:hover .card__icon .folderOpenIcon {
+          opacity: 1; /* Показать открытую папку */
+        }
+      }
     }
+  }
+}
+
+@media (min-width: $md) {
+  .wrapper {
+    .container {
+      .container__inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+.modal__title {
+  @include font-extra-large;
+  color: black;
+  position: relative;
+  width: fit-content;
+  margin-bottom: 16px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    left: 0;
+    bottom: -2px;
+    background-color: $primary;
+    width: 110%;
+  }
+}
+
+.modal__subtitle {
+  @include font-large;
+}
+
+.modal__button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: black;
+  margin-top: 16px;
+  border-radius: 5px;
+  color: white;
+  @include font-large;
+
+  &:hover {
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    color: black;
+    border: 1px solid $primary;
   }
 }

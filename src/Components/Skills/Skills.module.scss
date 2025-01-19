@@ -35,8 +35,9 @@
       padding: 0;
       margin-top: 32px;
       font-size: 30px;
+      color: black;
 
-      &:hover{
+      &:hover {
         color: $primary;
         transition: 0.3s all;
       }
@@ -88,7 +89,7 @@
             align-items: center;
 
             .skill__name {
-              font-size: 18px;
+              font-size: 16px;
               font-weight: bold;
             }
 
@@ -143,6 +144,19 @@
       .container__body {
         .list {
           grid-template-columns: repeat(2, 1fr);
+
+          .skill {
+            &__header {
+              .skill__name {
+                font-size: 18px;
+                font-weight: bold;
+              }
+
+              .skill__rating {
+                font-size: 16px;
+              }
+            }
+          }
         }
       }
     }
