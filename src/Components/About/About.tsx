@@ -45,15 +45,10 @@ const About = () => {
           </div>
 
           <div className={styles.profile__picture}>
-            <div className={styles.profile__picture}>
-              <img src={ProfilePic} alt="profile_pic" />
-              {[...Array(10)].map((_, index) => (
-                <div
-                  key={index}
-                  className={`${styles.line} ${styles[`line-${index + 1}`]}`}
-                />
-              ))}
-            </div>
+            <img src={ProfilePic} alt="profile_pic" />
+            {[...Array(10)].map((_, index) => (
+              <div key={index} className={`${styles[`line-${index + 1}`]}`} />
+            ))}
           </div>
         </div>
       </div>

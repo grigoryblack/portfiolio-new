@@ -1,0 +1,22 @@
+export const SKILLS = [
+    {id: 1,  name: "Language №1", description: ["Russian"], rating: 5 },
+    {id: 2,  name: "Language №2", description: ["English"], rating: 4 },
+    {id: 3,  name: "Web Development", description: ["HTML", "CSS (SCSS)", "JavaScript (ES6+)", "SSR", "SPA", "PWA"], rating: 5 },
+    {id: 4,  name: "Frontend Frameworks", description: ["React.js", "TypeScript", "Next.js"], rating: 5 },
+    {id: 5,  name: "State Management", description: ["Redux (Redux Toolkit)"], rating: 5 },
+    {id: 6,  name: "Build Tools", description: ["Vite.js for React", "Webpack"], rating: 4 },
+    {id: 7,  name: "UI Libraries", description: ["Ant Design", "MUI", "Carbon Design System", "shadcn/ui"], rating: 4 },
+    {id: 8,  name: "Animation Libraries", description: ["Framer Motion", "Tailwind CSS"], rating: 4 },
+    {id: 9,  name: "Desktop Development", description: ["Electron.js"], rating: 4 },
+    {id: 10,  name: "Preprocessors", description: ["Sass (SCSS)"], rating: 5 },
+    {id: 11,  name: "Programming Languages", description: ["Kotlin"], rating: 3 },
+    {id: 12,  name: "Version Control", description: ["Git"], rating: 5 },
+    {id: 13,  name: "Design Tools", description: ["Figma", "Photoshop (PH)", "Illustrator"], rating: 4 },
+    {id: 14,  name: "Backend", description: ["Express.js", "Node.js", "Nest.js, Swagger UI, Postman"], rating: 4 },
+    {id: 15, name: "Databases", description: ["MongoDB", "PostgreSQL"], rating: 4 },
+    {id: 16,  name: "Containerization", description: ["Docker", "OrbStack"], rating: 5 },
+    {id: 17,  name: "DevOps", description: ["Basic DevOps Experience"], rating: 2 },
+    {id: 18,  name: "Code Review", description: ["Experience and Knowledge of Code Review"], rating: 4 },
+    {id: 19, name: "Methodologies", description: ["BEM", "FSD", "DRY", "KISS"], rating: 5 },
+    {id: 20, name: "Responsive Design", description: ["Mobile First", "Adaptivity", "Fluid"], rating: 5 }
+];

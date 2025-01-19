@@ -14,7 +14,7 @@ const Home = () => {
       <div className={styles.home__block}>
         <div className={styles.title__block}>
           <h1>
-            site_owner: <span>Druzhenkov_Grigory</span>
+            page_owner:<span>Druzhenkov_Grigory</span>
           </h1>
 
           <h2>
