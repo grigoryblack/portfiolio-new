@@ -3,16 +3,16 @@ import styles from "./Portfolio.module.scss";
 import { projectsConfig } from "./Portfolio.config.ts";
 import { EyeOutlined, FolderFilled, FolderOpenFilled } from "@ant-design/icons";
 import ProjectModal from "./ProjectModal/ProjectModal.tsx";
-import type {TProject} from "./Portfolio.types.ts";
+import type { TProject } from "./Portfolio.types.ts";
 
 const PortfolioView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentProject, setCurrentProject] = useState<TProject>(null);
+  const [currentProject, setCurrentProject] = useState<TProject | null>(null);
 
-    const showModal = (project: TProject) => {
-        setCurrentProject(project);
-        setIsModalOpen(true);
-    };
+  const showModal = (project: TProject) => {
+    setCurrentProject(project);
+    setIsModalOpen(true);
+  };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
