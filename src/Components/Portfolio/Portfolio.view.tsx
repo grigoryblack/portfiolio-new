@@ -3,15 +3,16 @@ import styles from "./Portfolio.module.scss";
 import { projectsConfig } from "./Portfolio.config.ts";
 import { EyeOutlined, FolderFilled, FolderOpenFilled } from "@ant-design/icons";
 import ProjectModal from "./ProjectModal/ProjectModal.tsx";
+import type {TProject} from "./Portfolio.types.ts";
 
 const PortfolioView = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentProject, setCurrentProject] = useState(null);
+  const [currentProject, setCurrentProject] = useState<TProject>(null);
 
-  const showModal = (project) => {
-    setCurrentProject(project);
-    setIsModalOpen(true);
-  };
+    const showModal = (project: TProject) => {
+        setCurrentProject(project);
+        setIsModalOpen(true);
+    };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
@@ -28,7 +29,7 @@ const PortfolioView = () => {
             <div
               key={index}
               className={styles.card}
-              onClick={() => showModal(project)} // Открытие модалки при клике
+              onClick={() => showModal(project)}
             >
               <div className={styles.card__icon}>
                 <FolderFilled className={styles.folderIcon} />
