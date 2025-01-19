@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from "react";
 import styles from "./Skills.module.scss";
 import { SKILLS } from "./Skills.config.ts";
 import { DownOutlined, UpOutlined } from "@ant-design/icons";
