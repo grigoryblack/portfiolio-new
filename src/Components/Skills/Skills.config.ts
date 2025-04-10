@@ -3,7 +3,7 @@ export const SKILLS = [
     {id: 2,  name: "Language №2", description: ["English"], rating: 4 },
     {id: 3,  name: "Web Development", description: ["HTML", "CSS (SCSS)", "JavaScript (ES6+)", "SSR", "SPA", "PWA"], rating: 5 },
     {id: 4,  name: "Frontend Frameworks", description: ["React.js", "TypeScript", "Next.js"], rating: 5 },
-    {id: 5,  name: "State Management", description: ["Redux (Redux Toolkit)"], rating: 5 },
+    {id: 5,  name: "State Management", description: ["Redux (Redux Toolkit)", "Zustand"], rating: 5 },
     {id: 6,  name: "Build Tools", description: ["Vite.js for React", "Webpack"], rating: 4 },
     {id: 7,  name: "UI Libraries", description: ["Ant Design", "MUI", "Carbon Design System", "shadcn/ui"], rating: 4 },
     {id: 8,  name: "Animation Libraries", description: ["Framer Motion", "Tailwind CSS"], rating: 4 },
