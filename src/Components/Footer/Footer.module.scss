@@ -1,0 +1,17 @@
+@use "@scss/styles" as *;
+
+.wrapper {
+  width: 100%;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  background-color: black;
+
+  p {
+    @include font-xsmall;
+    font-weight: 100;
+    color: white;
+  }
+}

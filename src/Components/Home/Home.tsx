@@ -6,7 +6,7 @@ const HeaderContainer = lazy(() => import("../../Layout/Header"));
 
 const Home = () => {
   return (
-    <section className={styles.container}>
+    <section className={styles.container} id="home">
       <Suspense>
         <HeaderContainer />
       </Suspense>

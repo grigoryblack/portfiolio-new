@@ -20,7 +20,7 @@ const PortfolioView = () => {
   };
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="portfolio">
       <div className={styles.container}>
         <h2>Projects</h2>
 

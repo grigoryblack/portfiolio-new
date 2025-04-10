@@ -10,7 +10,7 @@ const SkillsView: React.FC<TSkillsProps> = (props) => {
   const fullSkills = SKILLS.slice(6);
 
   return (
-    <div className={styles.wrapper}>
+    <section className={styles.wrapper} id="skills">
       <div className={styles.container}>
         <h2>Skills</h2>
 
@@ -50,7 +50,7 @@ const SkillsView: React.FC<TSkillsProps> = (props) => {
           {showAll ? <UpOutlined /> : <DownOutlined />}
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

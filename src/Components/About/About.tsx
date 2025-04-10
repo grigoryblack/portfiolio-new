@@ -4,7 +4,7 @@ import ProfilePic from "../../../public/Pictires/MyPhoto.jpg";
 
 const About = () => {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="about">
       <div className={styles.container}>
         <div className={styles.content__block}>
           <div className={styles.content}>
