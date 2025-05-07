@@ -130,7 +130,7 @@
 }
 
 .modal__title {
-  @include font-extra-large;
+  @include font-title;
   color: black;
   position: relative;
   width: fit-content;
@@ -150,6 +150,29 @@
 .modal__subtitle {
   @include font-large;
 }
+
+.experience {
+  @include font-default;
+
+  &__title {
+    @include font-big;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 100%;
+
+    &::before {
+      width: 25%;
+      height: 1px;
+      background-color: $primary;
+      content: "";
+      bottom: -3px;
+      left: 0;
+      position: absolute;
+    }
+  }
+}
+
 
 .modal__button {
   width: 100%;

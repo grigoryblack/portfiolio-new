@@ -7,6 +7,7 @@ export type TProjectModalProps = {
 export type TProject = {
   name: string;
   description: string;
+  experience: string;
   link: string | null;
   src: string;
 };

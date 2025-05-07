@@ -15,6 +15,11 @@ const ProjectModal: React.FC<TProjectModalProps> = (props) => {
       <h3 className={styles.modal__title}>{project?.name}</h3>
 
       <p className={styles.modal__subtitle}>{project?.description}</p>
+      <p className={styles.experience__title}>My work experience</p>
+      <div
+        className={styles.experience}
+        dangerouslySetInnerHTML={{ __html: project?.experience || '' }}
+      />
 
       <img
         src={project?.src}
@@ -22,15 +27,14 @@ const ProjectModal: React.FC<TProjectModalProps> = (props) => {
         style={{ width: "100%", marginTop: "16px" }}
       />
 
-      {!project ||
-        (project.link && (
-          <button
-            className={styles.modal__button}
-            onClick={() => handleRedirect(project?.link)}
-          >
-            Visit project
-          </button>
-        ))}
+      {project?.link && (
+        <button
+          className={styles.modal__button}
+          onClick={() => handleRedirect(project?.link)}
+        >
+          Visit project
+        </button>
+      )}
     </Modal>
   );
 };
